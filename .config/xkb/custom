@@ -1,0 +1,38 @@
+xkb_symbols "custom" {
+    include "us(basic)"
+    include "custom(ctrl_meta)"
+    include "custom(meta_lwin_rctl)"
+    include "custom(super_caps)"
+    include "custom(caps_lctl)"
+};
+
+// Map Ctrl to Meta keys
+partial modifier_keys
+xkb_symbols "ctrl_meta" {
+    key <LALT> { [ Control_L ] };
+    key <RALT> { [ Control_R ] };
+    modifier_map Control { <LALT>, <RALT> };
+};
+
+// Map Meta to left Window and right Ctrl keys
+partial modifier_keys
+xkb_symbols "meta_lwin_rctl" {
+    key <LWIN> { [ Meta_L, Alt_L ] };
+    key <RCTL> { [ Meta_R, Alt_R ] };
+    modifier_map Mod1 { <LWIN>, <RCTL> };
+};
+
+// Map Super to CapsLock key
+partial modifier_keys
+xkb_symbols "super_caps" {
+    key <CAPS> { [ Super_L ] };
+    modifier_map Mod4 { <CAPS> };
+};
+
+// Map CapsLock to left Ctrl key
+partial modifier_keys
+xkb_symbols "caps_lctl" {
+    key <LCTL> { [ Caps_Lock ] };
+    modifier_map Lock { <LCTL> };
+};
+
