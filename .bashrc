@@ -21,6 +21,15 @@ cs () {
     curl -s cht.sh/$(curl -s cht.sh/:list | fzf --preview 'curl -s cht.sh/{}' -q "$*")
 }
 
+# dict
+dict () {
+    if [ -z "$1" ]; then
+        echo "syntax: ./dict <word>"
+    else
+        curl dict://dict.org/d:$1 | $PAGER
+    fi
+}
+
 # gpg agent
 GPG_TTY=$(tty)
 export GPG_TTY
